@@ -1,0 +1,56 @@
+.root {
+  position: relative;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.label {
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  top: 40px;
+  text-align: left;
+  font-size: 16px;
+  margin-left: 0;
+  transition: all 0.2s ease;
+  padding: 0 5px;
+  cursor: pointer;
+  color: rgb(100, 104, 105);
+}
+
+.labelOnTop {
+  composes: label;
+  font-size: 14px;
+  top: 4px;
+}
+
+.labelRequired::after {
+  content: "*";
+  color: rgb(233, 8, 8);
+  margin-left: 5px;
+}
+
+.inputText {
+  border-width: 0;
+  border-bottom: 0 solid rgb(223, 225, 226);
+  border-bottom-width: 1px;
+  line-height: 48px;
+  background-color: transparent;
+  font-size: 14px;
+  margin-top: 22px;
+  width: 100%;
+  outline: none;
+}
+
+.inputTextArea {
+  composes: inputText;
+  border: 0 solid rgb(223, 225, 226);
+  border-width: 1px;
+  line-height: 28px;
+}
+
+@media (min-width: 960px) {
+  .inputText:focus {
+    border: 1px solid rgb(223, 225, 226);
+  }
+}
