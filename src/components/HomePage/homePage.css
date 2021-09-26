@@ -1,0 +1,35 @@
+.root {
+  padding: 1rem;
+}
+
+.buttonWrapper {
+  text-align: center;
+  margin: 2rem;
+}
+
+.button {
+  height: 45px;
+  width: 140px;
+  border-radius: 30px;
+  border: 1px solid rgb(223, 225, 226);
+  font-size: 18px;
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+  background-color: rgb(255, 255, 255);
+}
+
+.resultWrapper {
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.result {
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.error {
+  composes: resultWrapper;
+  color: rgb(255, 0, 0);
+}

@@ -9,12 +9,27 @@ const TextInput = (props) => {
     fieldType: "text",
     ...props,
   });
+  const { options } = props;
 
   const { isRequired, title, ...rest } = informed;
-
   const getInputTypeVisualHtml =
-    informed.type === "textarea"
-      ? render(<textarea className={defaultClasses.inputTextArea} {...rest} />)
+    informed.type === "select"
+      ? render(
+          <select className={defaultClasses.select} {...rest}>
+            <option hidden>Wybierz</option>
+            {options
+              ? options.map((opt, index) => (
+                  <option
+                    key={index}
+                    value={opt.value}
+                    className={defaultClasses.option}
+                  >
+                    {opt.label}
+                  </option>
+                ))
+              : null}
+          </select>
+        )
       : render(<input className={defaultClasses.inputText} {...rest} />);
 
   return (
@@ -22,6 +37,7 @@ const TextInput = (props) => {
       <label
         className={classNames(defaultClasses.label, {
           [defaultClasses.labelOnTop]: fieldState.value?.length > 0,
+          [defaultClasses.selectLabel]: informed.type === "select" || "range",
           [defaultClasses.labelRequired]: isRequired,
         })}
       >
